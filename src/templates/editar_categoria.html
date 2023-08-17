@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='ecategorias.css') }}"  type= "text/css">
+    <title>SUPLIMAX | EDITAR CATEGORIA</title>
+  </head>
+  <body>
+    <header>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/categorias">Volver</a></li>
+      </ul>
+    </header>
+
+    <h1>{{message}}</h1>
+    <div class="contenedor_form">
+      <form action="" method="POST">
+        <input type="text" value="{{valid_cat.cat_name}}" name="cat_name" />
+        <input type="submit" value="Modificar" />
+      </form>
+    </div>
+  </body>
+</html>

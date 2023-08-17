@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="{{ url_for('static', filename='productInfo.css') }}"  type= "text/css">
+	<title>SUPLIMAX | {{p_fund.p_name}}</title>
+</head>
+<header>
+	<ul>
+		<li><a href="/" class="btn_volver">Inicio</a></li>
+	</ul>
+</header>
+
+<body>
+	<div class="contenedor_principal">
+		<div class="contenedor_producto">
+			<h1 class="n_producto">{{p_fund.p_name}}</h1>
+			<a href=/category/{{cat_fund._id}} class="cat_producto">{{cat_fund.cat_name}}</a>
+			<div class="img_product_container">
+				<img src=../static/products/{{p_fund.file_name}} alt="{{p_fund.file_name}}">
+			</div>
+			<div class="info_producto">
+				<h2 class="p_producto">{{p_fund.p_price}}$ - Bs. {{p_fund.priceVes}}</h2>
+				<p class="d_producto">{{p_fund.p_description}}</p>
+				<h3 class="c_producto">Diponible: {{p_fund.p_quantity}}</h3>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='tcategorias.css') }}"  type= "text/css">
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <div class="btn_container">
+        <a href="/" class="btn_header">Home</a>
+        <a href="/add_category" class="btn_header">Agregar categoria</a>
+      </div>
+    </header>
+
+    <h1>{{message}}</h1>
+    <ul class="categorias_container">
+      {%for x in all_categorys%}
+        <div class="categoria_container">
+          <li>{{x.cat_name}}</li>
+          <a href=/edit_category/{{x._id}}>Editar categoria</a>
+          <a href=del_categoria/{{x._id}}>Eliminar categoria</a>
+        </div>
+      {%endfor%}
+    </ul>
+  </body>
+</html>

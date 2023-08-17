@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="{{ url_for('static', filename='agregarp.css') }}"  type= "text/css">
+	<title>SUPLIMAX | AGREGAR PRODUCTO</title>
+</head>
+<body>
+	<header>
+		<ul>
+			<li><a href="/" class="btn_volver">Inicio</a></li>
+			<li><a href="/inventario" class="btn_volver">Volver</a></li>
+		</ul>
+	</header>
+	{%if message%}
+		<h1 class="message">{{message}}</h1>
+	{%endif%}
+
+
+<div class="contenedor_formulario">
+
+	<form action="" method="POST" enctype="multipart/form-data" class="">
+		<div class="inputs_container">
+			<input type="text" name="p_name" placeholder="Nombre del producto" autocomplete="off" class="input">
+			<input type="text" name="p_price" placeholder="Precio del producto" autocomplete="off" class="input">
+			<input type="text" name="p_quantity" placeholder="Cantidad del producto" autocomplete="off" class="input">
+			<input type="text" name="p_description" placeholder="Breve descripcion del producto" autocomplete="off" class="input">
+		</div>
+		<br>
+		<div class="send_info">
+      		<div class="file-container">
+				<input type="file" name="file" class="input_file">
+			</div>
+		  	<select type="text" name="_id" >
+			  <option>Seleciona la categoria</option>
+			  {% for x in find_cat %}
+				  <option value={{x._id}}>{{x.cat_name}}</option>
+			  {% endfor %}
+		  	</select>
+		  	<button type="submit" class="btn_agregar">Agregar</button>
+    </div>
+	</form>
+</div>
+
+</body>
+</html>

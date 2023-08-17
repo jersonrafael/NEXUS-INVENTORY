@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='inventario.css') }}"  type= "text/css">
+    <title>SUPLIMAX | INVENTARIO</title>
+</head>
+<body>
+    <header>
+        <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href='/agregar_producto'>Agregar producto</a></li>
+            <li><a href="/categorias">Ver categorias</a></li>
+        </ul>
+    </header>
+    {%if message%}
+        <h1>{{message}}</h1>
+    {%endif%}
+<div class="seccion_productos">
+    <ul class="contenedor_productos">
+        {% for x in p %}
+            <li class="contenedor_producto">
+
+                <div class="img_producto">
+                    <img src=../static/products/{{x.file_name}} alt="{{x.file_name}}">
+                </div>
+
+                <div class="info_producto">
+                    <h2>{{x.p_name}}</h2>
+                    <h2>{{x.p_price}}$ - Bs.{{x.priceVes}}</h2>
+                    <a href=edit/{{x._id}}>MODIFICAR</a>
+                    <a href=del/{{x._id}} class="btn_del">ELIMINAR</a>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+</body>
+</html>

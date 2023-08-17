@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='modificarp.css') }}"  type= "text/css">
+    <title>SUPLIMAX | {{p.p_name}}</title>
+  </head>
+  <body>
+
+    <header>
+        <ul><li><a href="/inventario" class="btn_volver">Volver</a></li></ul>
+    </header>
+
+    {% if message%}
+      <h1 class="message">{{message}}</h1>
+    {%endif%}
+
+    <div class="contenedor_formulario">
+      <form action="" method="POST" class="formulario">
+        <input type="text" name="p_name" value="{{p.p_name}}" autocomplete="off" />
+        <input type="text" name="p_price" value="{{p.p_price}}" autocomplete="off" />
+        <input type="text" name="p_quantity" value="{{p.p_quantity}}" autocomplete="off" />
+        <input type="text" name="p_description" value="{{p.p_description}}" autocomplete="off" />
+        
+  
+        <select type="text" name="cat_id">
+          <option value="{{p.cat_id}}">{{p_cat.cat_name}}</option>
+          {% for x in p_cat_g %}
+              <option value={{x._id}}>{{x.cat_name}}</option>
+          {% endfor %}
+      </select>
+        <input type="submit" value="MODIFICAR" />
+      </form>
+    </div>
+  </body>
+</html>

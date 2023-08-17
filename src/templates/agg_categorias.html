@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='ecategorias.css') }}"  type= "text/css">
+    <title>SUPLIMAX | AGREGAR CATEGORIA</title>
+  </head>
+  <body>
+    <header>
+      <ul>
+        <li><a href="/categorias">Volver</a></li>
+      </ul>
+    </header>
+
+    <h1>Agregar categoria</h1>
+
+    <h2 class="message">{{message}}</h2>
+
+    <div class="contenedor_form">
+      <form action="" method="POST">
+        <input type="text" name="cat_name" placeholder="Nombre de la categoria" />
+        <input type="submit" value="Agregar" />
+      </form>
+    </div>
+  </body>
+</html>

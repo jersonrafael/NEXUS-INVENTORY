@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}"  type= "text/css">
+	<!-- <script src="https://cdn.tailwindcss.com"></script> -->
+	<title>SUPLIMAX | CATALOGO</title>
+</head>
+<body>
+<div class="cabezera-pegadisa">
+	<header class="header-container">
+		<li class="img_logo-container"><img src="/static/styles/logo.png" alt="logo"></li>
+		<ul class="ul-container">
+			
+			<li class="li-element"><a href="/" class="a-element">Inicio</a></li>
+	
+			<div>
+				<form action='/search' method="POST">
+					<input type="text" name="p_search" placeholder="Buscar producto" class="buscar-input">
+					<!-- <button type="submit">Buscar</button> -->
+				</form>
+			</div>
+	
+			{% if messageLogin %}
+				<a href="/inventario">Inventarios Productos</a>
+				<a href="/categorias">Categorias</a>
+			{%endif%}
+	
+			{%if statusLogin == True%}
+				<li class="li-element"><a href="/logout" class="a-element">Cerrar</a></li>
+			{% elif messageLogin == False %}
+				<li class="li-element"><a href="/login" class="a-element">Soy parte de SUPLYMAX</a></li>
+			{%else%}
+				<li class="li-element"><a href="/logout" class="a-element">Cerrar Session</a></li>
+			{%endif%}
+		</ul>
+	</header>
+<aside class="categorias-container">
+	{%for x in p_categorys%}
+		<h2><a href=category/{{x._id}}>{{x.cat_name}}</a></h2>
+	{%endfor%}
+</aside>
+
+</div>
+<div class="seccion productos">
+	<ul class="contenedor_productos">
+		{% for p in alls_products %}
+			<li class="producto_container producto">
+				<div class="img-product">
+					<img src=../static/products/{{p.file_name}} alt="{{p.file_name}}">
+				</div>
+				<div class="datos_producto">
+					<h2 class="n_producto">{{p.p_name}}</h2>
+					<!-- <h4 class="c_producto">Cantidad disponible: {{p.p_quantity}}</h4> -->
+					<!-- <h3 class="d_producto">Breve descripcio: {{p.p_description}}</h3> -->
+					<h2 class="p_producto">${{p.p_price}} - Bs.{{p.priceVes}}</h2>
+					<a href=product/{{p._id}} class="ver_mas">Ver mas</a>
+				</div>
+			</li>
+		{% endfor %}
+	</ul>
+</div>
+</body>
+</html>
