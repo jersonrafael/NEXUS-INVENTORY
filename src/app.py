@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request, json,redirect,url_for,session
+from flask import Flask, jsonify, request, json,redirect,url_for,session,send_from_directory
 from bson.json_util import dumps
 from pymongo import MongoClient
 from pymongo.server_api import ServerApi
@@ -363,6 +363,9 @@ def edit_category(_id):
     else:
         return 'Oops parece que no tienes permiso para hacer esto'
 
+@app.route('/styles/<path:path>')
+def send_css(path):
+    return send_from_directory('css', path)
 
 # RUN APP
 if __name__ == "__main__":

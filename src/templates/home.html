@@ -3,7 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}"  type= "text/css">
+	
+	<link rel="stylesheet" href="{{ url_for('static', filename='styles/home.css') }}"  type= "text/css">
 	<!-- <script src="https://cdn.tailwindcss.com"></script> -->
 	<title>SUPLIMAX | CATALOGO</title>
 </head>
@@ -17,7 +18,7 @@
 	
 			<div>
 				<form action='/search' method="POST">
-					<input type="text" name="p_search" placeholder="Buscar producto" class="buscar-input">
+					<input type="text" name="p_search" placeholder="Buscar producto" class="buscar-input" id="buscador">
 					<!-- <button type="submit">Buscar</button> -->
 				</form>
 			</div>
@@ -46,12 +47,12 @@
 <div class="seccion productos">
 	<ul class="contenedor_productos">
 		{% for p in alls_products %}
-			<li class="producto_container producto">
+			<li class="producto_container" id="producto">
 				<div class="img-product">
 					<img src=../static/products/{{p.file_name}} alt="{{p.file_name}}">
 				</div>
 				<div class="datos_producto">
-					<h2 class="n_producto">{{p.p_name}}</h2>
+					<h2 class="n_producto" >{{p.p_name}}</h2>
 					<!-- <h4 class="c_producto">Cantidad disponible: {{p.p_quantity}}</h4> -->
 					<!-- <h3 class="d_producto">Breve descripcio: {{p.p_description}}</h3> -->
 					<h2 class="p_producto">${{p.p_price}} - Bs.{{p.priceVes}}</h2>
@@ -62,5 +63,6 @@
 	</ul>
 </div>
 <footer>Todos los derechos reservados suplymax 2023</footer>
+<script src="{{ url_for('static', filename='scripts/scripts.js') }}"></script>
 </body>
 </html>
