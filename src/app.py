@@ -49,7 +49,6 @@ def home():
 
     #VALIDAR SI EL USUARIO ESTA LOGEADO
     if 'username' in session:
-        print('Hay session')
         statusLogin = True
         return render_template('home.html', alls_products=alls_products,p_categorys=find_cat, messageLogin=statusLogin)
     else:
@@ -65,7 +64,6 @@ def home():
 @app.route('/search', methods=['POST'])
 def searchP():
     req_data = request.form
-    print(req_data)
     p_search = req_data['p_search']
     
     products_search = products.find_one({"p_name":p_search})
@@ -80,7 +78,6 @@ def searchP():
 def catSearch(category_id):
     find_cat = categorys.find_one({"_id":ObjectId(category_id)})
     all_products_cat = products.find({"cat_id": category_id})
-    print(all_products_cat)
     return render_template('categorys.html', name=find_cat,products_find=all_products_cat)
 
 
@@ -315,9 +312,11 @@ def add_category():
 def delete_category(_id):
     if 'username' in session:
         valid_cat = categorys.find_one({'_id': ObjectId(_id)})
+        products_find= products.find_one({'cat_id': _id})
 
         if valid_cat is not None:
             categorys.delete_one({'_id': ObjectId(_id)})
+            products.delete_one({'cat_id': _id})
             message = 'Categoria eliminada'
             return redirect(url_for('get_all_categorys'))
         else:
@@ -367,7 +366,7 @@ def edit_category(_id):
 
 # RUN APP
 if __name__ == "__main__":
-    app.run(host='192.168.1.42', port=5000, debug=True)
+    app.run(host='192.168.1.42',port=5000, debug=True)
     # app.run()
 # debug=True
 # 
