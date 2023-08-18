@@ -52,6 +52,7 @@ ul li {
 .img_product_container{
   width: 400px;
   height: 400px;
+  margin: 1rem 0;
 }
 
 .img_product_container img{
@@ -73,6 +74,7 @@ ul li {
 
 .info_producto {
   /* border: 0.1rem solid gray; */
+  margin: 1rem 0rem;
   border-radius: 5px;
   padding: 0.5rem 1rem;
 
