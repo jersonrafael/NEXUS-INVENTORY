@@ -1,4 +1,3 @@
-gunicorn
 blinker
 bson
 click
@@ -8,11 +7,18 @@ dnspython
 Flask
 Flask-Cors
 Flask-Login
+Flask-SQLAlchemy
+Flask-WTF
+greenlet
 itsdangerous
 Jinja2
 MarkupSafe
+psycopg2-binary
 pymongo
 python-dateutil
 self
 six
+SQLAlchemy
+typing_extensions
 Werkzeug
+WTForms
