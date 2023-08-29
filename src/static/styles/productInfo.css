@@ -1,7 +1,6 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
   font-family: "Airbnb";
 }
 
@@ -23,47 +22,43 @@ header {
   -moz-box-shadow: 0px 0px 7px -2px rgba(0, 0, 0, 0.75);
 }
 
-/* ESTILOS BOTON VOLVER */
-ul li {
-  /* margin-top: 1rem; */
-}
-
 .btn_volver {
   transition: 0.3s;
   padding: 0.5rem 1rem;
-  border-radius: 20px;
   text-decoration: none;
-  color: black;
+  color: gray;
   margin: 0rem 2rem;
 }
 
 .btn_volver:hover {
   transition: 0.3s;
-  background-color: gray;
+  color: black;
+  border-bottom: 1px solid black;
 }
 
 /* ESTILOS PRODUCTO */
-
-.contenedor_principal {
+.contenedor_principal{
   display: flex;
   justify-content: center;
 }
 
+.contenedor_producto{
+  margin-top: 2%;
+
+  width: 50%;
+}
+
+
 .img_product_container{
-  width: 400px;
-  height: 400px;
-  margin: 1rem 0;
+  margin-top: 2rem;
+
+  height: 50%;
 }
 
 .img_product_container img{
   object-fit: contain;
   width: 100%;
   height: 100%;
-}
-
-.n_producto {
-  margin-top: 1.5rem;
-  margin-right: 2rem;
 }
 
 .cat_producto {
@@ -73,12 +68,18 @@ ul li {
 }
 
 .info_producto {
-  /* border: 0.1rem solid gray; */
-  margin: 1rem 0rem;
-  border-radius: 5px;
-  padding: 0.5rem 1rem;
+  margin-top: 2rem;
 
+  border-radius: 5px;
+
+  padding: 1rem 2rem;
+
+  background-color: orange;
   box-shadow: 0px 0px 7px -2px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: 0px 0px 7px -2px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 0px 7px -2px rgba(0, 0, 0, 0.75);
+}
+
+@media screen and (max-width: 600px) { 
+
 }

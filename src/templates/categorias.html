@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/tcategorias.css') }}"  type= "text/css">
-    <link rel="shortcut icon" href="{{url_for('static', filename='styles/logo-s.png')}}">
-    <title>NEXUS | CATEGORIAS</title>
+    <link rel="shortcut icon" href="{{url_for('static', filename='styles/logo-xs.png')}}">
+    <title>VENTORY | CATEGORIAS</title>
   </head>
   <body>
     <header>
@@ -16,13 +16,13 @@
     </header>
 
     <h1>{{message}}</h1>
-    <h2 style="text-align: center; margin-top: 2rem;">Recuerda si eliminas una categoria se eliminaran los productos asociados a ella</h2>
+    <h2 class="texto-h2">Recuerda si eliminas una categoria se eliminaran los productos asociados a ella</h2>
     <ul class="categorias_container">
       {%for x in all_categorys%}
         <div class="categoria_container">
-          <li>{{x.cat_name}}</li>
-          <a href=/edit_category/{{x._id}}>Editar categoria</a>
-          <a href=del_categoria/{{x._id}}>Eliminar categoria</a>
+          <li class="cat_name">{{x.cat_name}}</li>
+          <a href=/edit_category/{{x._id}} class="btn_categoria">Editar categoria</a>
+          <a href=del_categoria/{{x._id}} class="btn_categoria">Eliminar categoria</a>
         </div>
       {%endfor%}
     </ul>

@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/ecategorias.css') }}"  type= "text/css">
-    <link rel="shortcut icon" href="{{url_for('static', filename='styles/logo-s.png')}}">
-    <title>NEXUS | AGREGAR CATEGORIA</title>
+    <link rel="shortcut icon" href="{{url_for('static', filename='styles/logo-xs.png')}}">
+    <title>VENTORY | AGREGAR CATEGORIA</title>
   </head>
   <body>
     <header>
@@ -21,7 +21,7 @@
     <div class="contenedor_form">
       <form action="" method="POST">
         <input type="text" name="cat_name" placeholder="Nombre de la categoria" autocomplete="off"/>
-        <input type="submit" value="Agregar" />
+        <input type="submit" value="Agregar" class="btn_agregar" />
       </form>
     </div>
   </body>

@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/login.css') }}"  type= "text/css">
-    <link rel="shortcut icon" href="{{url_for('static', filename='styles/logo-s.png')}}">
+    <link rel="shortcut icon" href="{{url_for('static', filename='styles/logo-xs.png')}}">
     <title>Iniciar session</title>
 </head>
-<header>
-    <ul>
-		<li><a href="/">Inicio</a></li>
-	</ul>
-</header>
 <body>
-    <!-- form -->
+    <header>
+        <ul>
+            <li><a href="/">Inicio</a></li>
+        </ul>
+    </header>
+    
     <h1>Bienvenido</h1>
     <h2 class="message">{{info}}</h2>
     <div class="form_container">
@@ -22,7 +22,7 @@
                 <div class="input_container">
                     <input type="text" name="username" autocomplete="off" placeholder="Nombre Usuario" class="border">
                     <br>
-                    <input type="text" name="userpass" autocomplete="off" placeholder="Contraseña">
+                    <input type="password" name="userpass" autocomplete="off" placeholder="Contraseña">
                 </div>
                 <button type="submit">Iniciar</button>
             </form>

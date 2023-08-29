@@ -31,7 +31,7 @@ li {
 }
 
 header ul li a {
-  margin: 0 2rem;
+  margin: 0 1rem;
   padding: 0.5rem 1rem;
 
   text-decoration: none;
@@ -82,8 +82,18 @@ input {
 }
 
 
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 600px) {
+
+
   input{
-    margin-bottom: 2rem;
+    font-size: 16px;
+  }
+
+  .btn-modificar{
+    margin-top: 1rem;
+  }
+
+  .btn_agregar{
+    margin-top: 1rem;
   }
 }

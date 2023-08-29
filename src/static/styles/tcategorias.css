@@ -22,22 +22,21 @@ header {
   -moz-box-shadow: 0px 0px 7px -2px rgba(0, 0, 0, 0.75);
 }
 
-.btn_container{
-    margin: 0 2rem;
+.btn_container {
+  margin: 0 1rem;
 }
 
-.btn_header{
-    margin: 0 1rem;
-    padding: 0.5rem 1rem;
+.btn_header {
+  margin: 0 0.5rem;
+  padding: 0.5rem 0.5rem;
 
-    text-decoration: none;
-    color: gray;
+  text-decoration: none;
+  color: gray;
 }
 
-.btn_header:hover{
-    
-    color: black;
-    border-bottom: 1px solid black;
+.btn_header:hover {
+  color: black;
+  border-bottom: 1px solid black;
 }
 
 /* ESTILOS ANCHOR */
@@ -46,41 +45,60 @@ a {
   display: inline-block;
 }
 
+.texto-h2 {
+  text-align: center;
+  margin-top: 2rem;
+}
+
 /* ESTILOS CATEGORIAS */
 
-.categorias_container{
-    margin-top: 2rem;
+.categorias_container {
+  margin-top: 2rem;
 
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
-.categoria_container{
+.categoria_container {
+  margin: 1rem 1rem;
 
-  margin: 0 1rem;
+  padding: 0.5rem 0.5rem;
+  border-radius: 10px;
 
-    padding: 1rem 2rem;
-    border-radius: 10px;
-
-    box-shadow: 0px 0px 8px -2px rgba(0,0,0,1);
-    -webkit-box-shadow: 0px 0px 8px -2px rgba(0,0,0,1);
-    -moz-box-shadow: 0px 0px 8px -2px rgba(0,0,0,1);
+  box-shadow: 0px 0px 8px -2px rgba(0, 0, 0, 1);
+  -webkit-box-shadow: 0px 0px 8px -2px rgba(0, 0, 0, 1);
+  -moz-box-shadow: 0px 0px 8px -2px rgba(0, 0, 0, 1);
 }
 
-.categoria_container li{
-    list-style: none;
-    text-align: center;
+.categoria_container li {
+  list-style: none;
+  text-align: center;
 }
 
-.categoria_container a{
-    text-decoration: none;
-    color: gray;
+.categoria_container a {
+  text-decoration: none;
+  color: gray;
 
-    font-size: 14px;
-    margin: 1rem 1rem;
+  font-size: 14px;
+  margin: 0.5rem 1rem;
 }
 
-.categoria_container a:hover{
-    color: black;
-    border-bottom: 1px solid black;
+.categoria_container a:hover {
+  color: black;
+  border-bottom: 1px solid black;
+}
+
+@media screen and (max-width: 600px) {
+  .texto-h2 {
+    font-size: 1rem;
+  }
+
+  .cat_name{
+    font-size: 1rem;
+  }
+
+  .btn_categoria{
+    font-size: 0.5rem;
+  }
 }

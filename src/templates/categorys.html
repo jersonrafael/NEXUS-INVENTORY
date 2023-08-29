@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/categorias.css') }}"  type= "text/css">
-    <link rel="shortcut icon" href="{{url_for('static', filename='styles/logo-s.png')}}">
-    <title>NEXUS | {{name.cat_name}}</title>
+    <link rel="shortcut icon" href="{{url_for('static', filename='styles/logo-xs.png')}}">
+    <title>VENTORY | {{name.cat_name}}</title>
 </head>
 <body>
     <header>
@@ -21,11 +21,11 @@
             {% for y in products_find %}
                 <li class="contenedor_producto">
                     <div class="img_producto">
-                        <img src=../static/products/{{y.file_name}} alt="{{y.file_name}}">
+                        <img src="https://res.cloudinary.com/degdcver8/image/upload/v1693325885/{{y.file_name}}.png" alt="{{y.file_name}}">
                     </div>
                     <div class="info_producto">
                         <h2>{{y.p_name}}</h2>
-                        <h2>{{y.p_price}}$ - Bs. {{y.priceVes}}</h2>
+                        <h2>{{y.p_price}}$</h2>
                         <a href=/product/{{y._id}} class="ver_mas">Ver mas</a>
                     </div>
                 </li>
