@@ -9,21 +9,20 @@ from markupsafe import escape
 # from werkzeug import secure_filename
 import os
 
-
-uri = "mongodb+srv://jrrvgamer:jerson980@suplimax.gjezftg.mongodb.net/?retryWrites=true&w=majority"
-# Create a new client and connect to the server
-client = MongoClient(uri, server_api=ServerApi('1'))
-# Send a ping to confirm a successful connection
-try:
-    client.admin.command('ping')
-    print("Pinged your deployment. You successfully connected to MongoDB!")
-except Exception as e:
-    print(e)
+# uri = "mongodb+srv://jrrvgamer:jerson980@suplimax.gjezftg.mongodb.net/?retryWrites=true&w=majority"
+# # Create a new client and connect to the server
+# client = MongoClient(uri, server_api=ServerApi('1'))
+# # Send a ping to confirm a successful connection
+# try:
+#     client.admin.command('ping')
+#     print("Pinged your deployment. You successfully connected to MongoDB!")
+# except Exception as e:
+#     print(e)
 
 # from flask_login import LoginManager,login_required
 
 # MONGODB CONNECTION
-# client = MongoClient('mongodb://localhost:27017/')
+client = MongoClient('mongodb://localhost:27017/')
 db = client['suplimax']
 products = db['products']
 categorys = db['categorys']
@@ -32,7 +31,6 @@ categorys = db['categorys']
 app = Flask(__name__)
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 UPLOAD_FOLDER = './static/products/'
-ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 CORS(app)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 # login_manager = LoginManager()
@@ -40,10 +38,9 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 """
     RUTA DE HOME
 """
-
-#RUTA HOME
 @app.route('/', methods=['GET'])
 def home():
+    
     find_cat = categorys.find()
     alls_products = products.find()
 
@@ -54,8 +51,6 @@ def home():
     else:
         statusLogin = False
         return render_template('home.html', alls_products=alls_products,p_categorys=find_cat, messageLogin=statusLogin)
-
-    # return render_template('home.html', alls_products=alls_products,p_categorys=find_cat)
 
 """
     RUTA DE BUSQUEDA
@@ -144,11 +139,6 @@ def edit_product(_id):
             return render_template('modificar.html', p=p, message=message,p_cat=p_cat,p_cat_g=p_cat_g)
             
 
-def allowed_file(filename):
-    return '.' in filename and \
-           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
-
-
 #AGREAGAR PRODUCTO
 @app.route('/agregar_producto', methods=['GET','POST'])
 def add_product():
@@ -170,15 +160,14 @@ def add_product():
 
         file = request.files['file']
         filen = file.filename
+        print(filen)
 
-        # if filen == '':
-        #     message = 'Selecciona una imagen para el producto'
-        #     find_cat = categorys.find()
-        #     return render_template('agg_productos.html',message=message, find_cat=find_cat)
-        # else:
-        #     file.save(os.path.join(app.config['UPLOAD_FOLDER'], filen))
-        #     pass
-
+        if filen == '':
+            message = 'Selecciona una imagen para el producto'
+            find_cat = categorys.find()
+            return render_template('agg_productos.html',message=message, find_cat=find_cat)
+        else:
+            pass
         # url_for('static', filename='imagen.jpg')
         priceVes = None
 
@@ -199,10 +188,11 @@ def add_product():
             return render_template('agg_productos.html',message=message, find_cat=find_cat)
         else:
             if p_name and p_description and p_price and p_quantity and filen != '':
+                find_cat = categorys.find()
                 products.insert_one(product_data)
                 file.save(os.path.join(app.config['UPLOAD_FOLDER'], filen))
                 message = 'Producto agregado'
-                return render_template('agg_productos.html',message=message)
+                return render_template('agg_productos.html',message=message,find_cat=find_cat)
             else:
                 find_cat = categorys.find()
                 message = 'Producto no agregado revisa que todos los campos esten correctos'
@@ -367,9 +357,20 @@ def edit_category(_id):
 def send_css(path):
     return send_from_directory('css', path)
 
+from form import agregar
+
+@app.route('/formAddp', methods=['GET', 'POST'])
+def formAddP():
+    form = agregar()
+    if form.validate_on_submit():
+        print(type(form.p_price.data))
+        return f'Nombre:{form.p_name.data} Precio: {form.p_price.data}'
+    return render_template('formex.html', form=form)
+
 # RUN APP
 if __name__ == "__main__":
-    app.run(host='192.168.1.42',port=5000, debug=True)
+    app.run(port=5000, debug=True)
+    # host='192.168.163.200',
     # app.run()
 # debug=True
 # 
