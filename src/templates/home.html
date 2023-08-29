@@ -5,38 +5,25 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
 	<link rel="stylesheet" href="{{ url_for('static', filename='styles/home.css') }}"  type= "text/css">
-	<!-- <script src="https://cdn.tailwindcss.com"></script> -->
-	<link rel="shortcut icon" href="{{url_for('static', filename='styles/logo-s.png')}}">
-	<title>NEXUS | CATALOGO</title>
+	<link rel="shortcut icon" href="{{url_for('static', filename='styles/logo-xs.png')}}">
+	<title>VENTORY | CATALOGO</title>
 </head>
 <body>
-<div class="cabezera-pegadisa">
 	<header class="header-container">
-		<li class="img_logo-container"><img src="/static/styles/logo-s.png" alt="logo"></li>
-		<ul class="ul-container">
-			
-			<li class="li-element"><a href="/" class="a-element">Inicio</a></li>
-			<!-- <li><a href="/deseos" class="a-element">Ir a la lista de deseos</a></li> -->
-	
+		<li class="img_logo-container"><img src="{{url_for('static', filename='styles/logo-s-copy.png')}}" alt="logo"></li>
+		<input type="text" name="p_search" placeholder="Buscar producto" class="buscar-input" id="buscador" autocomplete="off">
+		<div class="ul-container">
 			<div>
-				<form action='/search' method="POST">
-					<input type="text" name="p_search" placeholder="Buscar producto" class="buscar-input" id="buscador" autocomplete="off">
-				</form>
+				{% if messageLogin %}
+					<a href="/inventario" class="texto-a">Gestionar inventario</a>
+				{% else %}
+					<a href="/login" class="a-element texto-a">Soy parte de SUPLYMAX</a>
+				{%endif%}
 			</div>
-	
 			{% if messageLogin %}
-				<a href="/inventario">Inventarios Productos</a>
-				<a href="/categorias">Categorias</a>
+				<a href="/logout" class="a-element texto-a">Cerrar Sesion</a>
 			{%endif%}
-	
-			{%if statusLogin == True%}
-				<li class="li-element"><a href="/logout" class="a-element">Cerrar</a></li>
-			{% elif messageLogin == False %}
-				<li class="li-element"><a href="/login" class="a-element">Soy parte de SUPLYMAX</a></li>
-			{%else%}
-				<li class="li-element"><a href="/logout" class="a-element">Cerrar Session</a></li>
-			{%endif%}
-		</ul>
+		</div>
 	</header>
 <aside class="categorias-container">
 	{%for x in p_categorys%}
@@ -44,26 +31,24 @@
 	{%endfor%}
 </aside>
 
-</div>
+
 <div class="seccion productos">
 	<ul class="contenedor_productos">
 		{% for p in alls_products %}
 			<li class="producto_container" id="producto">
 				<div class="img-product">
-					<img src=../static/products/{{p.file_name}} alt="{{p.file_name}}">
+					<img src="https://res.cloudinary.com/degdcver8/image/upload/v1693325885/{{p.file_name}}.png" alt="{{p.file_name}}">
 				</div>
 				<div class="datos_producto">
 					<h2 class="n_producto" >{{p.p_name}}</h2>
-					<!-- <h4 class="c_producto">Cantidad disponible: {{p.p_quantity}}</h4> -->
-					<!-- <h3 class="d_producto">Breve descripcio: {{p.p_description}}</h3> -->
-					<h2 class="p_producto">${{p.p_price}} - Bs.{{p.priceVes}}</h2>
+					<h2 class="p_producto">${{p.p_price}}</h2>
 					<a href=product/{{p._id}} class="ver_mas">Ver mas</a>
 				</div>
 			</li>
 		{% endfor %}
 	</ul>
 </div>
-<footer>Todos los derechos reservados NEXUS 2023</footer>
+<footer>Todos los derechos reservados VENTORY 2023</footer>
 <script src="{{ url_for('static', filename='scripts/scripts.js') }}"></script>
 </body>
 </html>

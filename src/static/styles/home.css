@@ -18,7 +18,7 @@ header a{
   transition: 0.5s;
   padding: 0.5rem 0.8rem;
   text-decoration: none;
-  color: gray;
+  color: #2D5C74;
 }
 
 header a:hover{
@@ -27,17 +27,14 @@ header a:hover{
   border-bottom: 1px solid black;
 }
 
-/* HEADER */
-.cabezera-pegadisa{
-  position: sticky;
-  top: 0;
-}
 header {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   padding: 0.5rem 0;
+
+  background-color: orange;
 
   box-shadow: 0px 0px 7px -2px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: 0px 0px 7px -2px rgba(0, 0, 0, 0.75);
@@ -63,40 +60,25 @@ header ul li {
   border-bottom: 1px solid black;
 }
 
-
-form {
-  transition: 0.5s;
-  display: flex;
-  align-items: center;
-  border-radius: 20px;
-  background-color: white;
-  padding: 0.2rem 1rem;
-  border: 1px solid gray;
-
-  box-shadow: 0px 2px 3px -2px rgba(0,0,0,0.75);
--webkit-box-shadow: 0px 2px 3px -2px rgba(0,0,0,0.75);
--moz-box-shadow: 0px 2px 3px -2px rgba(0,0,0,0.75);
-}
-
-form:hover{
-  transition: 0.5s;
-  box-shadow: 0px 2px 6px -2px rgba(0,0,0,0.75);
--webkit-box-shadow: 0px 2px 6px -2px rgba(0,0,0,0.75);
--moz-box-shadow: 0px 2px 6px -2px rgba(0,0,0,0.75);
-}
-
-input {
-  padding: 0.5rem 3rem;
-  border: none;
+.buscar-input {
+  padding: 0.5rem 1rem;
+  width: 25%;
+  border: 1px solid black;
+  border-radius: 15px;
   outline: none;
+}
+
+.buscar-input:focus{
+  border-color: #2D5C74;
 }
 
 /* LOGO SUPLYMAX */
 
 .img_logo-container{
   list-style: none;
-  width: 70px;
-  height: 70px;
+  width: 25%;
+  height: 50px;
+  margin: 0 1rem;
 }
 
 .img_logo-container img{
@@ -110,6 +92,7 @@ aside {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 2rem;
 }
 
 aside h2 {
@@ -129,35 +112,12 @@ aside h2 a:hover{
   border-bottom: 1px solid gray;
 }
 
-/* ASIDE REDES SOCIALES */
-
-.aside_socialmedia{
-  position: sticky;
-  left: 0;
-  top: 80;
-  padding: 2rem 0rem;
-  width: 3%;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-
-  display: flex;
-  justify-content: center;
-
-  box-shadow: 0px 0px 7px -2px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 0px 0px 7px -2px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0px 0px 7px -2px rgba(0, 0, 0, 0.75);
-}
-
-.aside_socialmedia a{
-  text-decoration: none;
-}
-
 /* CARTA PRODUCTO */
 
 .contenedor_productos{
-  display: grid;
-  grid-template-columns: auto auto auto;
+  display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 1rem;
   margin: 2rem 6rem;
 }
@@ -167,18 +127,18 @@ aside h2 a:hover{
 }
 
 .img-product{
-  border-radius: 1rem;
   width: 150px;
   height: 150px;
+
+  box-shadow: 0px 0px 6px -1px rgba(0,0,0,0.75) inset;
+-webkit-box-shadow: 0px 0px 6px -1px rgba(0,0,0,0.75) inset;
+-moz-box-shadow: 0px 0px 6px -1px rgba(0,0,0,0.75) inset;
 }
 
 img{
   object-fit: contain;
   width:100%;
   height:100%;
-}
-
-.datos_producto{
 }
 
 .n_producto, .p_producto{
@@ -204,10 +164,10 @@ footer{
 
 @media only screen and (max-width: 750px) {
   
-  .img_logo-container{
+  /* .img_logo-container{
     width: 30px;
     height: 30px;
-  }
+  } */
   
   header ul li{
     font-size: 12px;
@@ -230,4 +190,43 @@ footer{
 
 .filtro{
   display: none;
+}
+
+@media screen and (max-width: 600px) {
+  
+  header{
+    justify-content: center;
+  }
+
+  .buscar-input {
+    width: 45%;
+    font-size: 8px;
+  }
+
+  .texto-a{
+    display: inline-block;
+    font-size: 10px;
+    padding: 0 0.5rem;
+  }
+
+  .contenedor_productos{
+    margin: 0 0 0 2rem;
+  }
+
+  .img-product{
+    width: 100px;
+    height: 100px;
+  }
+
+}
+
+@media screen and (max-width: 370px){
+  .texto-a{
+    font-size: 7px;
+  }
+  
+  .img-product{
+    width: 50px;
+    height: 50px;
+  }
 }

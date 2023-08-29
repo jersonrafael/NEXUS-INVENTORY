@@ -92,3 +92,48 @@ option{
   border: none;
   outline: none;
 }
+
+.btn-modificar{
+  font-size: 32px;
+  margin: 2rem 45%;
+
+  border: none;
+  outline: none;
+  background-color: white;
+
+  border-bottom: 1px solid black;
+
+}
+
+@media screen and (max-width: 600px){
+  .contenedor_formulario {
+    width: 80%;
+    margin: 30% 25%;
+    /* margin-top: 30%; */
+  }
+
+  input{
+    margin: 0.5rem 0;
+  }
+
+  .btn-modificar{
+    margin: 1rem 20%;
+
+    border: none;
+    outline: none;
+    background-color: white;
+
+    border-bottom: 1px solid black;
+
+  }
+}
+
+@media screen and (max-width: 400px){
+  .contenedor_formulario{
+    margin: 30% 15%;
+  }
+
+  .btn-modificar{
+    margin: 1rem 10%;
+  }
+}

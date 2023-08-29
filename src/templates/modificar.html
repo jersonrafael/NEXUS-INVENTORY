@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/modificarp.css') }}"  type= "text/css">
-    <link rel="shortcut icon" href="{{url_for('static', filename='styles/logo-s.png')}}">
-    <title>NEXUS | {{p.p_name}}</title>
+    <link rel="shortcut icon" href="{{url_for('static', filename='styles/logo-xs.png')}}">
+    <title>VENTORY | {{p.p_name}}</title>
   </head>
   <body>
 
@@ -19,19 +19,22 @@
 
     <div class="contenedor_formulario">
       <form action="" method="POST" class="formulario">
-        <input type="text" name="p_name" value="{{p.p_name}}" autocomplete="off" />
+        <div>
+          <input type="text" name="p_name" value="{{p.p_name}}" autocomplete="off" />
         <input type="text" name="p_price" value="{{p.p_price}}" autocomplete="off" />
         <input type="text" name="p_quantity" value="{{p.p_quantity}}" autocomplete="off" />
         <input type="text" name="p_description" value="{{p.p_description}}" autocomplete="off" />
-        
-  
+        </div>
+        <br>
+        <label>Categoria</label>
         <select type="text" name="cat_id">
           <option value="{{p.cat_id}}">{{p_cat.cat_name}}</option>
           {% for x in p_cat_g %}
               <option value={{x._id}}>{{x.cat_name}}</option>
           {% endfor %}
-      </select>
-        <input type="submit" value="MODIFICAR" />
+        </select>
+        <br>
+        <button type="submit" class="btn-modificar"/>MODIFICAR</button>
       </form>
     </div>
   </body>

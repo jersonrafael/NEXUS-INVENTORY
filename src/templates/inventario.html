@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/inventario.css') }}"  type= "text/css">
-    <link rel="shortcut icon" href="{{url_for('static', filename='styles/logo-s.png')}}">
-    <title>NEXUS | INVENTARIO</title>
+    <link rel="shortcut icon" href="{{url_for('static', filename='styles/logo-xs.png')}}">
+    <title>VENTORY | INVENTARIO</title>
 </head>
 <body>
     <header>
         <ul>
-            <li><a href="/">Inicio</a></li>
-            <li><a href='/agregar_producto'>Agregar producto</a></li>
-            <li><a href="/categorias">Ver categorias</a></li>
+            <li><a href="/" class="a-text">Inicio</a></li>
+            <li><a href='/agregar_producto' class="a-text">Agregar producto</a></li>
+            <li><a href="/categorias" class="a-text">Ver categorias</a></li>
         </ul>
     </header>
     {%if message%}
@@ -24,12 +24,12 @@
             <li class="contenedor_producto">
 
                 <div class="img_producto">
-                    <img src=../static/products/{{x.file_name}} alt="{{x.file_name}}">
+                    <img src="https://res.cloudinary.com/degdcver8/image/upload/v1693325885/{{x.file_name}}.png" alt="{{x.file_name}}">
                 </div>
 
                 <div class="info_producto">
                     <h2>{{x.p_name}}</h2>
-                    <h2>{{x.p_price}}$ - Bs.{{x.priceVes}}</h2>
+                    <h2>{{x.p_price}}$</h2>
                     <a href=edit/{{x._id}}>MODIFICAR</a>
                     <a href=del/{{x._id}} class="btn_del">ELIMINAR</a>
                 </div>

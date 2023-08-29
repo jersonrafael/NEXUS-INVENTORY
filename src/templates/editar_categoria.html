@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/ecategorias.css') }}"  type= "text/css">
-    <link rel="shortcut icon" href="{{url_for('static', filename='styles/logo-s.png')}}">
-    <title>NEXUS | EDITAR CATEGORIA</title>
+    <link rel="shortcut icon" href="{{url_for('static', filename='styles/logo-xs.png')}}">
+    <title>VENTORY | EDITAR CATEGORIA</title>
   </head>
   <body>
     <header>
@@ -19,7 +19,7 @@
     <div class="contenedor_form">
       <form action="" method="POST">
         <input type="text" value="{{valid_cat.cat_name}}" name="cat_name" />
-        <input type="submit" value="Modificar" />
+        <input type="submit" value="Modificar" class="btn-modificar"/>
       </form>
     </div>
   </body>
