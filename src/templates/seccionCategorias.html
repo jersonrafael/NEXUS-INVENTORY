@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{{url_for('static', filename='styles/logo-xs.png')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='styles/seccionCategorias.css')}}">
+    <title>VENTORY | Categorias</title>
+</head>
+<body>
+    <header class="cabecera">
+        <div class="img_contenedor">
+            <img src=" {{url_for('static', filename='styles/logo-s-copy.png')}} " alt="" class="img">
+        </div>
+    </header>
+    <div class="contenedor_texto">
+        <div>
+            <a href="{{url_for('home')}}" class="a_inicio">
+                <p>Inicio</p>
+                <div class="contenedor_img_casa">    
+                    <img src="{{url_for('static', filename='styles/icons/casa.png')}}" alt="" class="img_casa">
+                </div>
+            </a>
+        </div>
+
+        <h2 class="texto_categorias">Categorias Disponibles</h2>
+    </div>
+    <main class="contenedor_categorias">
+        <div class="contenedor categoria">
+            {% for x in allcategorys %}
+                <a href="category/{{x._id}}" class="categoria">{{x.cat_name}}</a>
+            {%endfor%}
+        </div>
+    </main>
+    <footer>@VENTORY 2023</footer>
+</body>
+</html>

@@ -18,30 +18,50 @@ header {
   padding: 1rem 0;
   width: 100%;
 
+  background-color: #335f6f;
+
   box-shadow: 0px 0px 7px -2px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: 0px 0px 7px -2px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 0px 7px -2px rgba(0, 0, 0, 0.75);
 }
 
-ul {
-  margin: 0 2rem;
+.contenedor_img_casa{
+  display: flex;
+  justify-content: start;
 }
 
-li {
-  display: inline-block;
-}
-
-header ul li a {
-  margin: 0 2rem;
-  padding: 0.5rem 1rem;
+.a_img_casa{
+  display: flex;
+  align-items: center;
+  width: 5%;
+  margin: 0 1rem;
 
   text-decoration: none;
-  color: gray;
+  color: white;
 }
 
-header ul li a:hover {
-  color: black;
-  border-bottom: 1px solid black;
+.img_casa{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+
+  margin: 0 0.5rem;
+}
+
+.logo_contenedor{
+  display: flex;
+  justify-content: center;
+}
+
+.img_container{
+  margin-top: 0.5rem;
+  width: 40%;
+}
+
+.img_logo{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 /* MESSAGE */
@@ -53,32 +73,39 @@ header ul li a:hover {
 
 /* INICIO */
 h1 {
-  margin: 2rem 0;
   text-align: center;
+  color: white;
+}
+
+.contenedor{
+  display: flex;
+  justify-content: center;
 }
 
 /* FORM */
 
 .form_container {
-  
-  display: flex;
-  justify-content: center;
-  margin-top: 10%;
+  margin-top: 1rem;
 }
 
-.input_container {
-  border-radius: 10px;
-  outline: 1px solid gray;
-  padding: 0.5rem 0.5rem;
+.input_container{
+  background-color: #335f6f;
+
+  padding: 3rem 5rem;
 }
 
 input {
-  margin: 0;
+  border-radius: 10px;
+  
+  margin: 0.5rem 0;
+  padding: 0.2rem 0.5rem;
+
   font-size: 2rem;
+  
   border: none;
   outline: none;
 
-  color: orange;
+  color: #335f6f;
 }
 
 .border {
@@ -88,11 +115,11 @@ input {
 button {
   border: none;
   outline: none;
-  background-color: orange;
-  padding: 0.5rem 2rem;
+  background-color: #335f6f;
+  padding: 1rem 2.5rem;
   border-radius: 10px;
   font-size: 24px;
-  color: black;
+  color: white;
 
   margin-top: 2rem;
 
@@ -103,10 +130,18 @@ button {
 
 button:hover{
   color: black;
-  background-color: darkgoldenrod;
+  background-color: #335f6f;
 }
 
-@media screen and (max-width: 600px){
+@media screen and (max-width: 500px){
+
+  .input_container{
+    padding: 1.5rem 2rem;
+  }
+
+  button{
+    padding: 0.5rem 1.5rem;
+  }
 
   header{
     width: 100%;
@@ -115,20 +150,22 @@ button:hover{
   input{
     font-size: 1.2rem;
   }
+
+  .a_img_casa{
+    width: 5%;
+  }
 }
 
 @media screen and (max-width: 320px){
 
-  header{
-    width: 100%;
+  h1{
+    font-size: 12px;
   }
 
-  input{
-    font-size: 1rem;
+  button{
+    padding: 0.5rem 1rem;
+    font-size: 14px;
   }
-}
-
-@media screen and (max-width: 250px){
 
   header{
     width: 100%;
@@ -136,5 +173,25 @@ button:hover{
 
   input{
     font-size: 0.8rem;
+  }
+
+  .a_img_casa{
+    width: 25%;
+  }
+  
+}
+
+@media screen and (max-width: 350px){
+
+  header{
+    width: 100%;
+  }
+
+  input{
+    font-size: 0.8rem;
+  }
+
+  .a_img_casa{
+    width: 25%;
   }
 }

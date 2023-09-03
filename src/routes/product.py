@@ -1,10 +1,13 @@
 from flask import render_template, redirect, url_for,request
+# from werkzeug import secure_filename
 from app import app
 
 from bson import ObjectId
 from conn import products,categorys
 
 from cloud import cloudinary
+
+import os
 
 #SEE ALL INFO OF THE PRODUCT
 @app.route('/product/<p_id>')
@@ -21,7 +24,7 @@ def delete_product(_id):
         return render_template('error.html')
     else:
         del_product = products.delete_one({"_id": ObjectId(_id)})
-        return redirect(url_for('proteccion'))
+        return redirect(url_for('inventario'))
     
 # EDIT A PRODUCT
 @app.route('/edit/<_id>', methods=['GET','POST'])
@@ -104,7 +107,7 @@ def add_product():
             if p_name and p_description and p_price and p_quantity and filen != '':
                 find_cat = categorys.find()
                 products.insert_one(product_data)
-                cloudinary.uploader.upload(file, public_id = filen)
+                cloudinary.uploader.upload(file, public_id=filen)
                 message = 'Producto agregado'
                 return render_template('agg_productos.html',message=message,find_cat=find_cat)
             else:

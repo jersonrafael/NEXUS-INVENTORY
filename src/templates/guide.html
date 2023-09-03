@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href=" {{url_for('static',filename='styles/guide.css')}} ">
+    <title>VENTORY</title>
+</head>
+<body>
+    <div class="contenedor_principal">
+            <div class="contenedor_img_vetory">
+                <img src="{{url_for('static',filename='styles/logo-s-copy.png')}}" alt="" class="img_ventory">
+                <h1 class="texto_principal">Inicia tu gestión de inventario fácil ahora</h1>
+                <div class="contenedor_img_cliente">
+                    <img src="{{url_for('static',filename='styles/icons/servicio-al-cliente.png')}}" alt="" class="img_cliente">
+                    
+                </div>
+                <div class="cont_btn">
+                    <a href="{{url_for('home')}}" class="btn_iniciar">Quiero Iniciar</a>
+                </div>
+            </div>
+    </div>
+</body>
+</html>

@@ -9,7 +9,7 @@ load_dotenv()
 # START APP
 app = Flask(__name__)
 app.secret_key = os.getenv("secret_key")
-UPLOAD_FOLDER = os.getenv("folder_route")
+UPLOAD_FOLDER = os.getenv("UPLOAD_FOLDER")
 CORS(app)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 

@@ -9,20 +9,49 @@
   </head>
   <body>
     <header>
-      <div class="btn_container">
-        <a href="/" class="btn_header">Home</a>
-        <a href="/add_category" class="btn_header">Agregar categoria</a>
+      <div class="btn_container btn_container_superior">
+        <a href="{{url_for('inventario')}}" class="btn_header">  
+          <p class="elemento_p">Volver</p>
+          <div class="img_btn_container">
+            <img src=" {{url_for('static',filename='styles/icons/deshacer.png')}} " alt="" class="img_btn_a">
+          </div>
+        </a>
+
+        <a href="{{url_for('add_category')}}" class="btn_header">
+          <p class="elemento_p">Agregar categoria</p>
+          <div class="img_btn_container">
+            <img src=" {{url_for('static',filename='styles/icons/anadir.png')}} " alt="" class="img_btn_a">
+          </div>
+        </a>
+
       </div>
     </header>
 
+    <div class="contenedor_logo">
+      <div class="contenedor_img"><img src="{{url_for('static', filename='styles/logo-s-copy.png')}}" alt="" class="img"></div>
+    </div>
+
     <h1>{{message}}</h1>
-    <h2 class="texto-h2">Recuerda si eliminas una categoria se eliminaran los productos asociados a ella</h2>
+    <h2 class="texto-h2">Recuerda <b>si eliminas una categoria se eliminaran los productos asociados a ella</b></h2>
     <ul class="categorias_container">
       {%for x in all_categorys%}
         <div class="categoria_container">
           <li class="cat_name">{{x.cat_name}}</li>
-          <a href=/edit_category/{{x._id}} class="btn_categoria">Editar categoria</a>
-          <a href=del_categoria/{{x._id}} class="btn_categoria">Eliminar categoria</a>
+          <div class="contenedor_btn">
+            <a href='/edit_category/{{x._id}}' class="btn_categoria">
+              <div class="contenedor_img_botones">
+                <p class="texto_p">Editar categoria</p>
+                <img src=" {{url_for('static', filename='styles/icons/editar.png')}} " alt="" class="img_lapiz">
+              </div>
+            </a>
+            
+            <a href='del_categoria/{{x._id}}' class="btn_categoria">
+              <div class="contenedor_img_botones">
+                <p class="texto_p">Eliminar categoria</p>
+                <img src=" {{url_for('static', filename='styles/icons/cancelar.png')}} " alt="" class="img_borrar">
+              </div>
+            </a>
+          </div>
         </div>
       {%endfor%}
     </ul>

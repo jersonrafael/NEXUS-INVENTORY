@@ -12,73 +12,20 @@
   font-family: 'Airbnb';
 }
 
-
-/* GENERAL ESTILOS */
-header a{
-  transition: 0.5s;
-  padding: 0.5rem 0.8rem;
-  text-decoration: none;
-  color: #2D5C74;
+.contenedor_superior{
+  position: sticky;
+  top: 0;
 }
 
-header a:hover{
-  color: black;
-  transition: 0.5s;
-  border-bottom: 1px solid black;
-}
+/* LOGO VENTORY */
 
-header {
+.container_img_logo{
   display: flex;
   justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  padding: 0.5rem 0;
-
-  background-color: orange;
-
-  box-shadow: 0px 0px 7px -2px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 0px 0px 7px -2px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0px 0px 7px -2px rgba(0, 0, 0, 0.75);
 }
-
-header div {
-  display: inline-block;
-}
-
-header ul li {
-  margin: 0px 1rem;
-  display: inline-block;
-}
-
-.ver_mas{
-  color: gray;
-  text-decoration: none;
-}
-
-.ver_mas:hover{
-  color: black;
-  border-bottom: 1px solid black;
-}
-
-.buscar-input {
-  padding: 0.5rem 1rem;
-  width: 25%;
-  border: 1px solid black;
-  border-radius: 15px;
-  outline: none;
-}
-
-.buscar-input:focus{
-  border-color: #2D5C74;
-}
-
-/* LOGO SUPLYMAX */
 
 .img_logo-container{
-  list-style: none;
-  width: 25%;
-  height: 50px;
-  margin: 0 1rem;
+  width: 10%;
 }
 
 .img_logo-container img{
@@ -87,29 +34,115 @@ header ul li {
   height: 100%;
 }
 
+/* GENERAL ESTILOS */
+
+.header_container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  
+  background-color: #335f6f;
+
+  padding: 0.5rem 1rem;
+}
+
+.buscar-input {
+  padding: 0.5rem 1rem;
+  width: 25%;
+  
+  border-radius: 15px;
+  
+  outline: none;
+  border: none;
+
+  text-align: center;
+}
+
+.buscar-input:focus{
+  border-color: #2D5C74;
+}
+
+.entrar_inventario{
+  display: flex;
+  align-items: center;
+  width: 50%;
+}
+
+.texto-a{
+  text-decoration: none;
+  color: white;
+}
+
+.texto_login{
+  margin: 0 1rem;
+}
+
+.contenedor_gestion{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 0.5rem;
+}
+
+/* IMG MENU */
+
+.img_container_configuracion{
+  margin: 0 0.5rem;
+  width: 5%;
+  height: 100%;
+}
+
+.img_configuracion{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 /* CATEGORIAS */
-aside {
+.categorias_container{
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 2rem;
+
+  background-color: #335f6f;
+  padding-bottom: 0.5rem;
 }
 
-aside h2 {
-  margin: 0 5px;
-}
-
-aside h2 a {
-  transition: 0.5s;
-  color: gray;
+.ver_categorias{
   text-decoration: none;
-  font-size: 20px;
+  color: white;
+
+  font-size: 1.2rem;
 }
 
-aside h2 a:hover{
-  transition: 0.5s;
-  color: black;
-  border-bottom: 1px solid gray;
+/* IMG SUPLYMAX */
+
+.seccion_productos{
+  display: flex;
+  justify-content: center;
+}
+
+.contenedor_imagen_suplymax{
+  display: flex;
+  justify-content: center;
+}
+
+.contenedor_suplymax{
+  width: 25%;
+  height: 5%;
+}
+
+.texto_bienvenido{
+  color: #2D5C74;
+  text-align: center;
+}
+
+.img_suplymax{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 /* CARTA PRODUCTO */
@@ -129,13 +162,13 @@ aside h2 a:hover{
 .img-product{
   width: 150px;
   height: 150px;
-
+  
   box-shadow: 0px 0px 6px -1px rgba(0,0,0,0.75) inset;
--webkit-box-shadow: 0px 0px 6px -1px rgba(0,0,0,0.75) inset;
--moz-box-shadow: 0px 0px 6px -1px rgba(0,0,0,0.75) inset;
+  -webkit-box-shadow: 0px 0px 6px -1px rgba(0,0,0,0.75) inset;
+  -moz-box-shadow: 0px 0px 6px -1px rgba(0,0,0,0.75) inset;
 }
 
-img{
+.img_producto{
   object-fit: contain;
   width:100%;
   height:100%;
@@ -151,82 +184,88 @@ img{
   font-size: 12px;  
 }
 
-footer{
-  position: absolute;
-  bottom: 0;
-  width: 100vw;
-  text-align: center;
+.ver_mas{
+  color: gray;
+  text-decoration: none;
+}
 
+.ver_mas:hover{
+  color: black;
+  border-bottom: 1px solid black;
+}
+
+footer{
+  position: fixed;
+  bottom: 0;
+  
+  width: 100vw;
+  
+  text-align: center;
+  color: white;
+  
   box-shadow: 0px 0px 7px -2px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: 0px 0px 7px -2px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 0px 7px -2px rgba(0, 0, 0, 0.75);
+
+  background-color: #335f6f;
+
+  padding: 0.5rem 0;
 }
-
-@media only screen and (max-width: 750px) {
-  
-  /* .img_logo-container{
-    width: 30px;
-    height: 30px;
-  } */
-  
-  header ul li{
-    font-size: 12px;
-    margin: 0px 0.5rem;
-  }
-
-  header a{
-    font-size: 12px;
-  }
-
-  form{
-    
-  }
-
-  input{
-    font-size: 12px;
-    padding: 0.5rem 1rem;
-  }
-}
-
 .filtro{
   display: none;
 }
 
-@media screen and (max-width: 600px) {
-  
-  header{
-    justify-content: center;
+@media only screen and (max-width: 800px) {
+  .img_logo-container{
+    width: 40%;
   }
 
-  .buscar-input {
+  .buscar-input{
     width: 45%;
-    font-size: 8px;
   }
 
   .texto-a{
-    display: inline-block;
-    font-size: 10px;
-    padding: 0 0.5rem;
+    font-size: 0.8rem;
   }
 
-  .contenedor_productos{
-    margin: 0 0 0 2rem;
+  .ver_categorias{
+    font-size: 0.8rem;
   }
-
-  .img-product{
-    width: 100px;
-    height: 100px;
-  }
-
 }
+@media screen and (max-width: 780px) {
+  .buscar-input{
+    width: 50%;
+  }
 
-@media screen and (max-width: 370px){
+  .contenedor_img_suplymax{
+    display: inline-block;
+    height: 20%;
+  }
+
+  .contenedor_suplymax{
+    width: 70%;
+    height: 5%;
+  }
+
+  .buscar-input{
+    width: 95%;
+  }
+
   .texto-a{
-    font-size: 7px;
+    font-size: 0.8rem;
+  }
+
+  .entrar_inventario_p{
+    font-size: 0.8rem;
+  }
+
+  .img_container_configuracion{
+    width: 10%;
   }
   
-  .img-product{
-    width: 50px;
-    height: 50px;
+}
+@media screen and (max-width: 305px){
+  .texto_login{
+    font-size: 13px;
   }
 }

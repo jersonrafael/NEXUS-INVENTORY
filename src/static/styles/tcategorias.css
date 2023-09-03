@@ -17,88 +17,119 @@
 header {
   padding: 1rem 0;
 
+  background-color: #335f6f;
+
   box-shadow: 0px 0px 7px -2px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: 0px 0px 7px -2px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 0px 7px -2px rgba(0, 0, 0, 0.75);
 }
 
-.btn_container {
-  margin: 0 1rem;
-}
-
-.btn_header {
-  margin: 0 0.5rem;
-  padding: 0.5rem 0.5rem;
-
-  text-decoration: none;
-  color: gray;
-}
-
-.btn_header:hover {
-  color: black;
-  border-bottom: 1px solid black;
-}
 
 /* ESTILOS ANCHOR */
 
-a {
-  display: inline-block;
+.btn_container_superior {
+  display: flex;
+  justify-content: space-around;
+}
+
+.elemento_p{
+  color: white;
+}
+
+a{
+  text-decoration: none;
 }
 
 .texto-h2 {
   text-align: center;
-  margin-top: 2rem;
+  color: red;
+  font-size: 1rem;
 }
+
+b{
+  color: black;
+}
+
+.img_btn_container{
+  display: flex;
+  justify-content: center;
+}
+
+.img_btn_a{
+  width: 24px;
+  height: 5%;
+  object-fit: contain;
+}
+
 
 /* ESTILOS CATEGORIAS */
 
-.categorias_container {
-  margin-top: 2rem;
-
+.contenedor_logo{
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
 }
+
+.contenedor_img{
+  display: flex;
+  justify-content: center;
+
+  width: 100%;
+  height: 5%;
+}
+
+.img{
+  width: 65%;
+  height: 0%;
+  object-fit: contain;
+}
+
 
 .categoria_container {
-  margin: 1rem 1rem;
+  background-color: #335f6f;
 
-  padding: 0.5rem 0.5rem;
-  border-radius: 10px;
-
-  box-shadow: 0px 0px 8px -2px rgba(0, 0, 0, 1);
-  -webkit-box-shadow: 0px 0px 8px -2px rgba(0, 0, 0, 1);
-  -moz-box-shadow: 0px 0px 8px -2px rgba(0, 0, 0, 1);
+  padding: 0.5rem 0;
 }
 
-.categoria_container li {
-  list-style: none;
-  text-align: center;
-}
-
-.categoria_container a {
+.btn_categoria{
   text-decoration: none;
-  color: gray;
-
-  font-size: 14px;
-  margin: 0.5rem 1rem;
+  color: white;
 }
 
-.categoria_container a:hover {
-  color: black;
-  border-bottom: 1px solid black;
+.cat_name{
+  text-align: center;
+  color: white;
 }
 
+.contenedor_btn{
+  display: flex;
+}
+
+.contenedor_img_botones{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img_lapiz{
+  width: 5%;
+  height: 100%;
+  object-fit: contain;
+  margin: 0 0.2rem;
+}
+
+.img_borrar{
+  width: 5%;
+  height: 100%;
+  object-fit: contain;
+  margin: 0 0.2rem;
+}
 @media screen and (max-width: 600px) {
-  .texto-h2 {
-    font-size: 1rem;
+  .texto_p{
+    font-size: 0.8rem;
   }
 
-  .cat_name{
-    font-size: 1rem;
-  }
-
-  .btn_categoria{
+  .texto-h2{
+    margin: 0.5rem;
     font-size: 0.5rem;
   }
 }

@@ -4,16 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/inventario.css') }}"  type= "text/css">
-    <link rel="shortcut icon" href="{{url_for('static', filename='styles/logo-xs.png')}}">
+    <link rel="shortcut icon" href=" {{url_for('static', filename='styles/logo-xs.png')}} ">
     <title>VENTORY | INVENTARIO</title>
 </head>
 <body>
-    <header>
-        <ul>
-            <li><a href="/" class="a-text">Inicio</a></li>
-            <li><a href='/agregar_producto' class="a-text">Agregar producto</a></li>
-            <li><a href="/categorias" class="a-text">Ver categorias</a></li>
-        </ul>
+    <div class="cotenedor_img-cabecera">
+        <div class="contenedor_img"><img src="{{url_for('static', filename='styles/logo-s-copy.png')}}" alt="" class="img"></div>
+    </div>
+    <header class="cabecera">
+            <a href="{{url_for('home')}}" class="texto_a">
+                Inicio
+                <div class="contenedor_img_categoria">
+                    <img src=" {{url_for('static', filename='styles/icons/casa.png')}} " alt="" class="img_categoria1">
+                </div>
+            </a>
+            <a href="{{url_for('add_product')}}" class="texto_a">
+                Agregar producto
+                <div class="contenedor_img_categoria">
+                    <img src=" {{url_for('static', filename='styles/icons/anadir.png')}} " alt="" class="img_categoria2">
+                </div>
+            </a>
+            <a href="{{url_for('categoriasAdmin')}}" class="texto_a">
+                Ver categorias
+                <div class="contenedor_img_categoria">
+                    <img src=" {{url_for('static', filename='styles/icons/ojo.png')}} " alt="" class="img_categoria3">
+                </div>
+            </a>
+            
     </header>
     {%if message%}
         <h1>{{message}}</h1>
@@ -31,7 +48,7 @@
                     <h2>{{x.p_name}}</h2>
                     <h2>{{x.p_price}}$</h2>
                     <a href=edit/{{x._id}}>MODIFICAR</a>
-                    <a href=del/{{x._id}} class="btn_del">ELIMINAR</a>
+                    <a href=/del/{{x._id}} class="btn_del">ELIMINAR</a>
                 </div>
             </li>
         {% endfor %}

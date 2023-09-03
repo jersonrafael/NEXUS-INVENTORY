@@ -10,7 +10,12 @@
   <body>
 
     <header>
-        <ul><li><a href="/inventario" class="btn_volver">Volver</a></li></ul>
+        <a href="/inventario" class="btn_volver">
+          <div class="contenedor_img">
+            <p>Volver</p>
+            <img src=" {{url_for('static',filename='styles/icons/deshacer.png')}} " alt="" class="img_volver">
+          </div>
+        </a>
     </header>
 
     {% if message%}

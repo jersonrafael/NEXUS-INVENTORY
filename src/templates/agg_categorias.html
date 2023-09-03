@@ -10,17 +10,28 @@
   <body>
     <header>
       <ul>
-        <li><a href="/categorias">Volver</a></li>
+        <li>
+          <a href="{{url_for('categoriasAdmin')}}" class="btn_volver">
+            <p class="btn_volver">Volver</p>
+            <div class="contenedor_img_volver">
+              <img src=" {{url_for('static', filename='styles/icons/deshacer.png')}} " alt="" class="img_volver">
+            </div>
+          </a>
+        </li>
       </ul>
     </header>
-
-    <h1>Agregar categoria</h1>
-
+    <div class="contenedor_logo">
+      <div class="contenedor_img">
+        <img src="{{url_for('static', filename='styles/logo-s-copy.png')}}" alt="" class="img">
+      </div>
+    </div>
+    <h1 class="elemento_texto">Agregar categoria</h1>
     <h2 class="message">{{message}}</h2>
 
     <div class="contenedor_form">
       <form action="" method="POST">
-        <input type="text" name="cat_name" placeholder="Nombre de la categoria" autocomplete="off"/>
+        <label class="elemento_texto">Nombre de la categoria</label>
+        <input type="text" name="cat_name" autocomplete="off" class="nombre_categoria"/>
         <input type="submit" value="Agregar" class="btn_agregar" />
       </form>
     </div>

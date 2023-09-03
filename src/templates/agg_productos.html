@@ -8,11 +8,28 @@
 	<title>VENTORY | AGREGAR PRODUCTO</title>
 </head>
 <body>
-	<header>
-		<ul>
-			<li><a href="/" class="btn_volver">Inicio</a></li>
-			<li><a href="/inventario" class="btn_volver">Volver</a></li>
-		</ul>
+
+	<div class="contenedor_ventory">
+		<div class="contenedor_logo-ventory">
+			<img src="{{url_for('static', filename='styles/logo-s-copy.png')}}" alt="" class="img">
+		</div>
+	</div>
+
+	<header class="cabecera">
+			<div class="flex">
+				<a href="{{url_for('home')}}" class="texto-a iconos">
+					<div class="contenedor_img_iconos">
+						<p>Inicio</p>
+						<img src=" {{url_for('static', filename='styles/icons/casa.png')}} " alt="" class="img_icono">
+					</div>
+				</a>
+				<a href="{{url_for('inventario')}}" class="texto-a iconos">
+					<div class="contenedor_img_iconos">
+						<p>Volver</p>
+						<img src=" {{url_for('static', filename='styles/icons/deshacer.png')}} " alt="" class="img_icono">
+					</div>
+				</a>
+			</div>
 	</header>
 	{%if message%}
 		<h1 class="message">{{message}}</h1>
@@ -23,10 +40,25 @@
 
 	<form action="" method="POST" enctype="multipart/form-data" class="">
 		<div class="inputs_container">
-			<input type="text" name="p_name" placeholder="Nombre del producto" autocomplete="off" class="input">
-			<input type="text" name="p_price" placeholder="Precio del producto" autocomplete="off" class="input">
-			<input type="text" name="p_quantity" placeholder="Cantidad del producto" autocomplete="off" class="input">
-			<input type="text" name="p_description" placeholder="Breve descripcion del producto" autocomplete="off" class="input">
+			<div>
+				<label>Nombre</label>
+				<input type="text" name="p_name" autocomplete="off" class="input">
+			</div>
+			
+			<div>
+				<label>Precio en $</label>
+				<input type="text" name="p_price" autocomplete="off" class="input" >
+			</div>
+			
+			<div>
+				<label>Cantidad</label>
+				<input type="text" name="p_quantity" autocomplete="off" class="input">
+			</div>
+			
+			<div>
+				<label>Descripcion</label>
+				<input type="text" name="p_description" autocomplete="off" class="input">
+			</div>
 		</div>
 		<br>
 		<div class="send_info">

@@ -9,46 +9,66 @@
 	<title>VENTORY | CATALOGO</title>
 </head>
 <body>
-	<header class="header-container">
-		<li class="img_logo-container"><img src="{{url_for('static', filename='styles/logo-s-copy.png')}}" alt="logo"></li>
+<div class="contenedor_superior">
+	<div class="container_img_logo">
+		<div class="img_logo-container"><img src="{{url_for('static', filename='styles/logo-s-copy.png')}}" alt="logo"></div>
+	</div>
+
+	<header class="header_container">
 		<input type="text" name="p_search" placeholder="Buscar producto" class="buscar-input" id="buscador" autocomplete="off">
-		<div class="ul-container">
-			<div>
+		<div class="contenedor_gestion">
+
 				{% if messageLogin %}
-					<a href="/inventario" class="texto-a">Gestionar inventario</a>
-				{% else %}
-					<a href="/login" class="a-element texto-a">Soy parte de SUPLYMAX</a>
+				
+					<a href="/inventario" class="texto-a entrar_inventario">
+						<p class="entrar_inventario_p">Gestionar inventario</p>
+						<div class="img_container_configuracion">
+							<img src="{{url_for('static',filename='styles/icons/menu.png')}}" alt="" class="img_configuracion">
+						</div>
+					</a>
+				
+
+				{% if messageLogin %}
+					<a href="/logout" class="texto-a">Cerrar Sesion</a>
 				{%endif%}
-			</div>
-			{% if messageLogin %}
-				<a href="/logout" class="a-element texto-a">Cerrar Sesion</a>
-			{%endif%}
 		</div>
 	</header>
-<aside class="categorias-container">
-	{%for x in p_categorys%}
-		<h2><a href=category/{{x._id}}>{{x.cat_name}}</a></h2>
-	{%endfor%}
-</aside>
 
-
-<div class="seccion productos">
-	<ul class="contenedor_productos">
-		{% for p in alls_products %}
-			<li class="producto_container" id="producto">
-				<div class="img-product">
-					<img src="https://res.cloudinary.com/degdcver8/image/upload/v1693325885/{{p.file_name}}.png" alt="{{p.file_name}}">
-				</div>
-				<div class="datos_producto">
-					<h2 class="n_producto" >{{p.p_name}}</h2>
-					<h2 class="p_producto">${{p.p_price}}</h2>
-					<a href=product/{{p._id}} class="ver_mas">Ver mas</a>
-				</div>
-			</li>
-		{% endfor %}
-	</ul>
+<div class="categorias_container">
+	{% else %}
+		<a href="/login" class="texto-a texto_login">
+			Login
+		</a>
+	{%endif%}
+	<a href="{{url_for('categorias')}}" class="ver_categorias">Categorias</a>
 </div>
-<footer>Todos los derechos reservados VENTORY 2023</footer>
+</div>
+<div class="seccion_productos">
+	<div>
+		<div class="contenedor_imagen_suplymax">
+			
+			<div class="contenedor_suplymax">
+				<p class="texto_bienvenido">Bienvenido al catalogo de</p>
+				<img src="{{url_for('static',filename='styles/logo-s-copy.png')}}" alt="" class="img_suplymax">
+			</div>
+		</div>
+		<ul class="contenedor_productos">
+			{% for p in alls_products %}
+				<li class="producto_container" id="producto">
+					<div class="img-product">
+						<img src="https://res.cloudinary.com/degdcver8/image/upload/v1693325885/{{p.file_name}}.png" alt="{{p.file_name}}" class="img_producto">
+					</div>
+					<div class="datos_producto">
+						<h2 class="n_producto" >{{p.p_name}}</h2>
+						<h2 class="p_producto">${{p.p_price}}</h2>
+						<a href=product/{{p._id}} class="ver_mas">Ver mas</a>
+					</div>
+				</li>
+			{% endfor %}
+		</ul>
+	</div>
+</div>
+<footer>@VENTORY 2023</footer>
 <script src="{{ url_for('static', filename='scripts/scripts.js') }}"></script>
 </body>
 </html>

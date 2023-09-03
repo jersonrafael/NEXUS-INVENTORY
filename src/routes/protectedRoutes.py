@@ -7,7 +7,7 @@ from conn import products,categorys
 
 #INVENTORY
 @app.route('/inventario', methods=['GET'])
-def proteccion():
+def inventario():
 
     if 'username' in session:
         get_products = products.find()
@@ -16,8 +16,8 @@ def proteccion():
         return 'Oops Parece que no tienes permiso para hacer eso'
 
 # GET ALL CATEGORYS PROTEGIDAS
-@app.route('/categorias', methods=['GET'])
-def get_all_categorys():
+@app.route('/categoriasAdmin', methods=['GET'])
+def categoriasAdmin():
 
     if 'username' in session:
         all_categorys = categorys.find()
@@ -95,9 +95,9 @@ def delete_category(_id):
             categorys.delete_one({'_id': ObjectId(_id)})
             products.delete_one({'cat_id': _id})
             message = 'Categoria eliminada'
-            return redirect(url_for('get_all_categorys'))
+            return redirect(url_for('categoriasAdmin'))
         else:
             message = 'Esta categoria no existe'
-            return redirect(url_for('get_all_categorys'))
+            return redirect(url_for('categoriasAdmin'))
     else:
         return 'Oops no puedes hacer eso'

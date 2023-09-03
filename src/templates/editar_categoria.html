@@ -9,18 +9,36 @@
   </head>
   <body>
     <header>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/categorias">Volver</a></li>
-      </ul>
+      <div class="contenedor_botones">
+        <a href=" {{url_for('home')}} " class="anchor_header">
+          <p class="texto_p">Inicio</p>
+          <div class="cotenedor_img_header">
+            <img src=" {{url_for('static',filename='styles/icons/casa.png')}} " alt="" class="img_header">
+          </div>
+        </a>
+        <a href="{{url_for('categoriasAdmin')}}" class="anchor_header">
+          <p class="texto_p">Volver</p>
+          <div class="cotenedor_img_header">
+            <img src=" {{url_for('static',filename='styles/icons/deshacer.png')}} " alt="" class="img_header">
+          </div>
+        </a>
+      </div>
     </header>
 
-    <h1>{{message}}</h1>
+    <div class="contenedor_img_ventory">
+      <img src=" {{url_for('static',filename='styles/logo-s-copy.png')}} " alt="" class="img_ventory">
+    </div>
+
+    <h2 class="texto_h2">Modificar Categoria</h2>
+
+    <div class="contenedor_inferior">
+      <h1 class="editar">{{message}}</h1>
     <div class="contenedor_form">
       <form action="" method="POST">
-        <input type="text" value="{{valid_cat.cat_name}}" name="cat_name" />
+        <input type="text" value="{{valid_cat.cat_name}}" name="cat_name" class="input"/>
         <input type="submit" value="Modificar" class="btn-modificar"/>
       </form>
+    </div>
     </div>
   </body>
 </html>

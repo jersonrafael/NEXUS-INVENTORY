@@ -10,23 +10,34 @@
 <body>
     <header>
         <ul>
-            <li><a href="/">Inicio</a></li>
+            <li class="contenedor_img_casa">
+                <a href="{{url_for('home')}}" class="a_img_casa">
+                    Inicio
+                    <img src="{{url_for('static', filename='styles/icons/casa.png')}}" alt="" class="img_casa">
+                </a>
+            </li>
         </ul>
     </header>
-    
-    <h1>Bienvenido</h1>
-    <h2 class="message">{{info}}</h2>
-    <div class="form_container">
-        <div class="form">
-            <form action="/login" method="POST" class="">
-                <div class="input_container">
-                    <input type="text" name="username" autocomplete="off" placeholder="Nombre Usuario" class="border">
-                    <br>
-                    <input type="password" name="userpass" autocomplete="off" placeholder="Contraseña">
-                </div>
-                <button type="submit">Iniciar</button>
-            </form>
-        </div>
+    <div class="logo_contenedor">
+        <div class="img_container"><img src="{{url_for('static',filename='styles/logo-s.png')}}" alt="" class="img_logo"></div>
     </div>
+    
+    <h2 class="message">{{info}}</h2>
+    <main class="contenedor">
+        <div class="form_container">
+            
+            <div class="form">
+                <form action="/login" method="POST" class="">
+                    <div class="input_container">
+                        <h1>Bienvenido</h1>
+                        <input type="text" name="username" autocomplete="off" placeholder="Nombre Usuario" class="border">
+                        <br>
+                        <input type="password" name="userpass" autocomplete="off" placeholder="Contraseña">
+                    </div>
+                    <button type="submit">Iniciar</button>
+                </form>
+            </div>
+        </div>
+    </main>
 </body>
 </html>

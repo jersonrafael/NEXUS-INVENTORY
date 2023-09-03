@@ -12,42 +12,68 @@
   font-family: "Airbnb";
 }
 
-a {
-  text-decoration: none;
-  color: black;
+/* parte superior */
+
+.cotenedor_img-cabecera{
+  display: flex;
+  justify-content: center;
+
+}
+
+.contenedor_img{
+  width: 25%;
+}
+
+.img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 /* HEADER */
 
-header{
+.cabecera{
   display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+  justify-content: center;
+  
   padding: 1rem 0;
 
-  box-shadow: 0px 0px 7px -2px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 0px 0px 7px -2px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0px 0px 7px -2px rgba(0, 0, 0, 0.75);
+  background-color: #335f6f;
 }
 
-header li{
+.texto_a{
+  text-decoration: none;
+  color: white;
+
   margin: 0 0.5rem;
-  display: inline-block;
+
+  text-align: center;
 }
 
-header li a{
-  color: gray;
-  transition: 0.3s;
-  padding: 0.5rem 1rem;
-  /* border-radius: 20px; */
+
+/* IMAGENES CATEGOIRAS */
+
+.contenedor_img_categoria{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-header li a:hover{
-  color: black;
-  transition: 0.3s;
-  border-bottom: 1px solid black;
+.img_categoria1{
+  width: 10%;
+  height: 100%;
+  object-fit: contain;
 }
 
+.img_categoria2{
+  width: 10%;
+  height: 100%;
+}
+
+.img_categoria3{
+  width: 10%;
+  height: 100%;
+}
 /* SECCION PRODUCTOS */
 .seccion_productos{
   display: flex;
@@ -60,11 +86,10 @@ header li a:hover{
   justify-content: center;
   list-style: none;
   flex-wrap: wrap;
-}
 
-.contenedor_producto{
   margin: 1rem 0 0 1rem;
 }
+
 
 /* PRODUCTOS */
 
@@ -89,7 +114,7 @@ h2{
 
 .info_producto a{
   font-size: 12px;
-  color: gray;
+  color: #335f6f;
 }
 
 .info_producto a:hover{
@@ -102,8 +127,35 @@ h2{
 }
 
 @media screen and (max-width: 600px){
-  .a-text{
-    padding: 0 0.2rem;
-    font-size: 12px;
+
+  /* .contenedor_img{
+    width: 35%;
+  } */
+
+  .texto_a{
+    font-size: 0.8rem;
+  }
+
+  .img_categoria1{
+    width: 18%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+  .img_categoria2{
+    width: 20%;
+    height: 100%;
+  }
+  
+  .img_categoria3{
+    width: 22%;
+    height: 100%;
+  }
+}
+
+@media screen and (max-width: 420px){
+  
+  .texto_a{
+    font-size: 8px;
   }
 }

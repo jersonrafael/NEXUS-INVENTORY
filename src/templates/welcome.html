@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='styles/welcome.css')}}"
+    />
+    <title>VENTORY</title>
+  </head>
+  <body>
+    <div class="contenedor_general">
+      <div>
+
+        <div class="contenedor_superior">
+          <h1>Bienvenido</h1>
+          <div class="contenedor_img_ventory"><img src="{{url_for('static',filename='styles/logo-s-copy.png')}}" alt="" class="img_ventory"></div>
+        </div>
+        <h2>La mejor app de inventario</h2>
+  
+        <div>
+          <div class="contenedor_img_carpeta"><img src="{{url_for('static',filename='styles/icons/carpeta.png')}}" alt="" class="img_carpeta"></div>
+          <div class="contenedor_img_flecha"><a href="{{url_for('guide')}}"><img src="{{url_for('static',filename='styles/icons/flecha-correcta.png')}}" alt="" class="img_flecha"></a></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
