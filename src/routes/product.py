@@ -13,7 +13,7 @@ import os
 @app.route('/product/<p_id>')
 def moreInfo(p_id):
     p_fund = products.find_one({'_id': ObjectId(p_id)})
-    cat_fund = categorys.find_one({'_id':ObjectId(p_fund['cat_id'])})
+    cat_fund = categorys.find_one({'_id':ObjectId(p_id)})
     return render_template('productInfo.html', p_fund=p_fund,cat_fund=cat_fund)
 
 # DELETE A PRODUCT
@@ -33,7 +33,7 @@ def edit_product(_id):
     if request.method == 'GET':
         p = products.find_one({"_id": ObjectId(_id)})
         p_info = p['cat_id']
-        p_cat = categorys.find_one({"_id": ObjectId(p_info)})
+        p_cat = categorys.find_one({"_id": ObjectId(_id)})
         p_cat_g = categorys.find()
         return render_template('modificar.html', p=p,p_cat=p_cat,p_cat_g=p_cat_g)
     else:

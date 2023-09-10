@@ -67,13 +67,16 @@ ul li {
   margin-top: 2rem;
 }
 
-.img_producto{
-  width: 150px;
-  height: 150px;
+.contenedor_producto{
+  padding: 0.5rem 0.5rem;
+  margin: 1rem 0.5rem;
+  width: 30%;
+}
 
-  box-shadow: 0px 0px 6px -1px rgba(0,0,0,0.75) inset;
--webkit-box-shadow: 0px 0px 6px -1px rgba(0,0,0,0.75) inset;
--moz-box-shadow: 0px 0px 6px -1px rgba(0,0,0,0.75) inset;
+.img_producto{
+  display: flex;
+  justify-content: center;
+  height: 80%;
 }
 
 img{
@@ -95,4 +98,16 @@ h3{
 .ver_mas{
   text-decoration: none;
   color: #335f6f;
+}
+
+
+@media only screen and (max-width: 600px){
+
+  .contenedor_producto{
+    width: 60%;
+  } 
+
+  .img_producto{
+    height:60% ;
+  }
 }

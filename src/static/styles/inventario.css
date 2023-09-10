@@ -86,16 +86,20 @@
   justify-content: center;
   list-style: none;
   flex-wrap: wrap;
-
-  margin: 1rem 0 0 1rem;
 }
 
+.contenedor_producto{
+  margin: 1rem 1rem;
+
+  width: 25%;
+}
 
 /* PRODUCTOS */
 
 .img_producto{
-  width: 150px;
-  height: 150px;
+  height: 85%;
+  display: flex;
+  justify-content: center;
 }
 
 img{
@@ -120,7 +124,7 @@ h2{
 .info_producto a:hover{
   color: black;
   border-bottom: 1px solid black;
-}
+} 
 
 .btn_del{
   margin-left: .6rem;
@@ -151,11 +155,19 @@ h2{
     width: 22%;
     height: 100%;
   }
+
+  .contenedor_producto{
+    width: 60%;
+  }
+
+  .img_producto{
+    height: 60%;
+  }
 }
 
 @media screen and (max-width: 420px){
   
   .texto_a{
-    font-size: 8px;
+    font-size: 9px;
   }
 }

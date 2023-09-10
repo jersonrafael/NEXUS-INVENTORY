@@ -26,7 +26,7 @@
         <h2 class="texto_categorias">Categorias Disponibles</h2>
     </div>
     <main class="contenedor_categorias">
-        <div class="contenedor categoria">
+        <div class="contenedor_categoria">
             {% for x in allcategorys %}
                 <a href="category/{{x._id}}" class="categoria">{{x.cat_name}}</a>
             {%endfor%}

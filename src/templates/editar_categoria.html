@@ -3,25 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles/ecategorias.css') }}"  type= "text/css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/editar_categorias.css') }}"  type= "text/css">
     <link rel="shortcut icon" href="{{url_for('static', filename='styles/logo-xs.png')}}">
     <title>VENTORY | EDITAR CATEGORIA</title>
   </head>
   <body>
-    <header>
+    <header class="cabecera">
       <div class="contenedor_botones">
+
         <a href=" {{url_for('home')}} " class="anchor_header">
-          <p class="texto_p">Inicio</p>
           <div class="cotenedor_img_header">
+            <p class="texto_p">Inicio</p>
             <img src=" {{url_for('static',filename='styles/icons/casa.png')}} " alt="" class="img_header">
           </div>
         </a>
+
         <a href="{{url_for('categoriasAdmin')}}" class="anchor_header">
-          <p class="texto_p">Volver</p>
           <div class="cotenedor_img_header">
+            <p class="texto_p">Volver</p>
             <img src=" {{url_for('static',filename='styles/icons/deshacer.png')}} " alt="" class="img_header">
           </div>
         </a>
+
       </div>
     </header>
 
