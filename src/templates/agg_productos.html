@@ -39,40 +39,49 @@
 <div class="contenedor_formulario">
 
 	<form action="" method="POST" enctype="multipart/form-data" class="">
-		<div class="inputs_container">
-			<div>
-				<label>Nombre</label>
-				<input type="text" name="p_name" autocomplete="off" class="input">
-			</div>
-			
-			<div>
-				<label>Precio en $</label>
-				<input type="text" name="p_price" autocomplete="off" class="input" >
-			</div>
-			
-			<div>
-				<label>Cantidad</label>
-				<input type="text" name="p_quantity" autocomplete="off" class="input">
-			</div>
-			
-			<div>
-				<label>Descripcion</label>
-				<input type="text" name="p_description" autocomplete="off" class="input">
-			</div>
-		</div>
+		{{ form.csrf_token }}
+
+		{% for error in form.p_name.errors %}
+            <h2 class="text-danger">{{ error }}</h2>
+        {% endfor %}
+		{{ form.p_name.label }}
 		<br>
-		<div class="send_info">
-      		<div class="file-container">
-				<input type="file" name="file" class="input_file">
-			</div>
-		  	<select type="text" name="_id" >
-			  <option>Seleciona la categoria</option>
-			  {% for x in find_cat %}
-				  <option value={{x._id}}>{{x.cat_name}}</option>
-			  {% endfor %}
-		  	</select>
-		  	<button type="submit" class="btn_agregar">Agregar</button>
-    </div>
+		{{ form.p_name}}
+		<br>
+		{% for error in form.p_price.errors %}
+            <h2 class="text-danger">{{ error }}</h2>
+        {% endfor %}
+		{{ form.p_price.label }}
+		<br>
+		{{ form.p_price}}
+		<br>
+		{% for error in form.p_quantity.errors %}
+            <h2 class="text-danger">{{ error }}</h2>
+        {% endfor %}
+		{{ form.p_quantity.label }}
+		<br>
+		{{ form.p_quantity}}
+		<br>
+		{% for error in form.p_description.errors %}
+            <h2 class="text-danger">{{ error }}</h2>
+        {% endfor %}
+		{{ form.p_description.label }}
+		<br>
+		{{ form.p_description}}
+		<br>
+		{% for error in form.category.errors %}
+            <h2 class="text-danger">{{ error }}</h2>
+        {% endfor %}
+		<br>
+		{{ form.category.label }} {{ form.category}}
+		<br>
+		{% for error in form.ImagenProducto.errors %}
+            <h2 class="text-danger">{{ error }}</h2>
+        {% endfor %}
+		<br>
+		{{ form.ImagenProducto}}
+		<br>
+		{{ form.submit}}
 	</form>
 </div>
 
