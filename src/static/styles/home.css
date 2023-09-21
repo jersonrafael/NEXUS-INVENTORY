@@ -216,6 +216,12 @@ footer{
   display: none;
 }
 
+.products_quantity{
+  color: #2D5C74;
+  text-align: center;
+  font-size: 12px;
+}
+
 @media only screen and (max-width: 800px) {
   .img_logo-container{
     width: 40%;

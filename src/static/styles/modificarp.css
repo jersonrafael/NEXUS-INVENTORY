@@ -63,7 +63,7 @@ header {
 .contenedor_formulario {
   display: flex;
   justify-content: center;
-  margin-top: 15%;
+  margin-top: 10%;
 }
 
 input {
@@ -120,15 +120,32 @@ option{
 
 }
 
+.contenedor_img_product{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.img_product{
+  width: 60%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.contenedor_general{
+  display: flex;
+  justify-content: center;
+}
+
 @media screen and (max-width: 600px){
-  .contenedor_formulario {
-    width: 80%;
-    margin: 30% 25%;
-    /* margin-top: 30%; */
+
+  .input_text{
+    width: 100%;
+    margin: 0.5rem 0;
   }
 
-  input{
-    margin: 0.5rem 0;
+  .input_img{
+    width: 80%;
   }
 
   .btn-modificar{

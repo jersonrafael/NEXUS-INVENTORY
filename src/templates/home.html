@@ -48,10 +48,11 @@
 		<div class="contenedor_imagen_suplymax">
 			
 			<div class="contenedor_suplymax">
-				<p class="texto_bienvenido">Bienvenido al catalogo de</p>
+				<p class="texto_bienvenido">Bienvenido al catalogo <br>Tasa BCV Hoy({{bcv}})</p>
 				<img src="{{url_for('static',filename='styles/logo-s-copy.png')}}" alt="" class="img_suplymax">
 			</div>
 		</div>
+		<h2 class="products_quantity">Cantidad de productos disponibles: ({{quantity}}) </h2>
 		<ul class="contenedor_productos">
 			{% for p in alls_products %}
 				<li class="producto_container" id="producto">
@@ -60,7 +61,7 @@
 					</div>
 					<div class="datos_producto">
 						<h2 class="n_producto" >{{p.p_name}}</h2>
-						<h2 class="p_producto">${{p.p_price}}</h2>
+						<h2 class="p_producto">${{p.p_price}}<br> BS {{p.priceVes}} </h2>
 						<a href=product/{{p._id}} class="ver_mas">Ver mas</a>
 					</div>
 				</li>

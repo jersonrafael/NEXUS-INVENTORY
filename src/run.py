@@ -5,4 +5,4 @@ from dotenv import load_dotenv
 load_dotenv()
 
 if __name__ == '__main__':
-    app.run(port=os.getenv('port'),host='192.168.1.42' ,debug=True)
+    app.run(port=os.getenv('port'),host='' ,debug=os.getenv('debug_status'))

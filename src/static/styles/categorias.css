@@ -53,6 +53,11 @@ ul li {
   color: #335f6f;
 }
 
+.cantidad_productos{
+  text-align: center;
+  color: #335f6f;
+}
+
 .seccion_productos{
   display: flex;
   justify-content: center;

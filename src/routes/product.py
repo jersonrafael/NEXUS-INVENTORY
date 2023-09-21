@@ -11,10 +11,11 @@ from form import Producto,EditProductForm
 
 import os
 
-from priceBs import priceVes
+from priceBs import obtenerUsd
 
+priceVes = obtenerUsd()
+# 
 priceVes = priceVes.replace(',', '.')
-
 #SEE ALL INFO OF THE PRODUCT
 @app.route('/product/<p_id>')
 def moreInfo(p_id):
@@ -27,10 +28,13 @@ def moreInfo(p_id):
 @app.route('/del/<_id>', methods=['GET'])
 def delete_product(_id):
     find_product = products.find_one({"_id": ObjectId(_id)})
+    image = find_product['file_name']
+    print(image)
     if find_product is None:
         return render_template('error.html')
     else:
         del_product = products.delete_one({"_id": ObjectId(_id)})
+        cloudinary.uploader.destroy(image)
         return redirect(url_for('inventario'))
     
 # EDIT A PRODUCT
@@ -40,7 +44,6 @@ def edit_product(_id):
         p = products.find_one({"_id": ObjectId(_id)})
         p_info = p['cat_id']
         p_cat = categorys.find_one({"_id": ObjectId(p_info)})
-        print(p_cat)
         p_cat_g = categorys.find()
         return render_template('modificar.html', p=p,p_cat=p_cat,p_cat_g=p_cat_g)
     else:
@@ -54,6 +57,9 @@ def edit_product(_id):
         p_description = req_data['p_description']
         cat_id = req_data['cat_id']
 
+        file = request.files['ImagenProducto']
+        filen = file.filename
+
         message = ''
         result = products.find_one({"_id": ObjectId(_id)})
 
@@ -63,7 +69,8 @@ def edit_product(_id):
             p = products.find_one({"_id": ObjectId(_id)})
             return render_template('modificar.html', p=p, message=message)
         else:
-            products.update_one({"_id": ObjectId(_id)}, {"$set": {"p_name": p_name, "p_price":p_price, "priceVes": int(p_price) * float(priceVes),"p_quantity":p_quantity, "p_description":p_description, 'cat_id':cat_id}})
+            products.update_one({"_id": ObjectId(_id)}, {"$set": {"p_name": p_name, "p_price":p_price, "priceVes": int(p_price) * float(priceVes),"p_quantity":p_quantity, "p_description":p_description, 'cat_id':cat_id, 'file_name':filen}})
+            cloudinary.uploader.upload(file, public_id=filen)
             message = "Se han realizado los cambios con exito"
             p = products.find_one({"_id": ObjectId(_id)})
             p_info = p['cat_id']
@@ -104,7 +111,6 @@ def add_product():
             else:
                 find_cat = categorys.find()
                 products.insert_one(product_data)
-                # file.save(os.path.join(app.config['UPLOAD_FOLDER'], filen))
                 cloudinary.uploader.upload(file, public_id=filen)
                 message = 'Producto agregado'
                 return render_template('agg_productos.html',message=message,find_cat=find_cat,form=form,bcv=priceVes)
